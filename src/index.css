@@ -1,13 +1,818 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: Sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.navbar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2%;
+  position: relative;
+  height: 50px; 
+  color: #000; 
+}
+.navbar a[href="#hamburgers"],
+.navbar a[href="#veggieburgers"] {
+  background-color: #ffa07a; 
+  color: #fff; 
+}
+
+
+.navbar a {
+  margin: 0 2%;
+  padding: 1% 2%;
+  text-decoration: none;
+  color: #000;
+}
+
+.navbar-logo {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  width: 80px; 
+  height: auto;
+}
+.navbar a:hover {
+  background-color: #f1f1f1;
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+.modal {
+  max-height: 80vh;
+  overflow-y: auto;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.modal img {
+  max-width: 75%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* Desktop layout */
+@media (min-width: 768px) {
+
+  .burger-list,
+  .soda-list,
+  .fries-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+  }
+  .burger-item:hover,
+  .soda-item:hover,
+  .fries-item:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+  }
+
+  .burger-item,
+  .soda-item,
+  .fries-item {
+    width: 100%; 
+    margin:1%;
+    border: 1px solid #ffa07a;
+    
+  }
+  .fries-item {
+    height:5%;
+    width:25%;
+  }
+  
+  #veggieburgers .burger-item {
+    background-color: #c5e1a5;
+  }
+  
+  .burger-item img,
+  .soda-item img,
+  .fries-item img {
+    max-width: 100%;
+    height: 50%;
+    object-fit: cover;
+    display: block;
+    width: 35%;
+    align-items: center;
+    margin: auto;
+  }
+  
+  .burger-item h3,
+  .soda-item h3,
+  .fries-item h3 {
+    font-size: 1em; 
+    margin-top: 1%;
+    text-align: center;
+  }
+  
+  .burger-item p,
+  .soda-item p,
+  .fries-item p {
+    font-size: 0.8em; 
+    text-align: center;
+  }
+  
+  .burger-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    font-weight: bold;
+    color: #574b65;
+  }
+  .vegan-veggie-burger-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em; 
+    font-weight: bold; 
+    color: #3bdc46; 
+  }
+  .sodas-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem; 
+    font-weight: bold; 
+    color: #574b65; 
+  }
+  .fries-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem; 
+    font-weight: bold; 
+    color: #574b65;
+  }
+
+
+
+
+
+
+
+
+
+
+  .cart{
+    border: 2%solid #d80909;
+    border-radius: 1%;
+    height: 50%;
+    width: 25%;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    overflow: auto;
+    background-color: #8aad8d
+    ;
+    margin-left: 5%; 
+    z-index: 9999;
+  }
+  .cart-items {
+    padding: 10px;
+    position: relative;
+  }
+
+  .CheckOutButton{
+    display: inline-block;
+    padding: 1% 1%;
+    background-color: #28a338;
+    color: #e6f3f0;
+    text-decoration: none;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    margin-top: 2%;
+    margin-bottom: 1%;
+   }
+   .CheckOutButton:hover {
+    background-color: #ccc;
+  }
+  .decrease-button,
+  .increase-button {
+    border: none;
+    background-color: transparent;
+    font-size: 2rem;
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+    margin-top:1%
+  }
+  
+  .decrease-button span {
+    color: red;
+  }
+  
+  .increase-button span {
+    color: green;
+  }
+
+  .burger-container,
+  .soda-container,
+  .fries-container {
+    padding: 1%;
+    position: relative;
+  }
+  .checkout-image {
+    width: 30%;
+  }
+  .checkout-image:hover{
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+  }
+  
+
+
+
+  .credit-card-input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .credit-card-input-container input[type="text"] {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: #333;
+  }
+  #expiration-month-input,
+  #expiration-year-input {
+    width: 30px;
+    margin-left: 5px; 
+  }
+  .cvv-input{
+    width:40px;
+  }
+  .checkout-images-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    height: auto;
+    width: 20%;
+    max-width: 80%; 
+    margin: 2%; 
+  }
+  .input-container input {
+    flex-grow: 1;
+    height: 2rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    margin: 0.5rem; 
+    box-sizing: border-box;
+  }
+
+  .price-display {
+    margin: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .error-checkout-message {
+    font-size: 0.8rem;
+    color: red; 
+    
+  }
+
+  .phone-input-container {
+    width: 60%;
+    margin: 2% auto;
+    padding: 2%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .phone-input {
+    width: 60%;
+    box-sizing: border-box;
+    margin-top: 10px;
+    text-align: center;
+  }
+  .phone-input {
+    width: 50%;
+    display:flex;
+    justify-content: center;
+    box-sizing: border-box;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .confirm-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #FCE38A;
+  }
+  
+  .confirm-page h2 {
+    font-size: 3rem;
+    color: #F38181;
+    text-align: center;
+  }
+  .confirm-page .timer {
+    font-size: 3rem;
+    display: flex;
+    justify-content:center;
+    font-weight: bold;
+    color: #19971d;
+  }
+
+  .confirm-page .footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #FCE38A;
+  flex-shrink: 0;
+}
+
+.confirm-page .footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  text-align: center;
+  background-color: #FCE38A;
+  font-weight: bold;
+}
+
+.confirm-page .footer a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: green;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.confirm-page .footer a:hover {
+  background-color: darkgreen;
+}
+
+
+
+.arrow-down {
+  display: inline-block;
+  transform: rotate(180deg);
+}
+
+
+.cart-toggle {
+  position:static;
+  bottom: 5%; 
+  right: 2%; 
+  width: 30px; 
+  height: 10px; 
+  transform: scale(0.1);
+}
+.cart-toggle-displayed {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.cart-sticky {
+  position: sticky;
+  bottom: 0;
+  background-color: #f1f1f1;
+  z-index: 9999;
+}
+
+}
+
+
+
+/* Desktop and Mobile*/
+
+.buttonInWindow {
+  display: block;
+  margin: 1rem auto;
+  text-align: center;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.buttonInWindow:hover {
+  background-color: #38d13a;
+}
+
+
+
+/* Mobile layout */
+@media (max-width: 767px) {
+  
+  .burger-list,
+  .soda-list,
+  .fries-list {
+    flex-wrap: wrap;
+  }
+  .burger-item,
+.soda-item,
+.fries-item {
+  width: 50%;
+  margin-bottom: 1%;
+  padding: 1%;
+  background-color: #f1f1f1;
+  height: 5%;
+}
+
+#veggieburgers .burger-item,
+#mrlettuce .burger-item {
+  background-color: #c5e1a5;
+}
+
+.burger-item h3 {
+  font-size: 1.2em;
+  margin-top: 1%;
+}
+
+.burger-item p {
+  font-size: 1em;
+}
+
+.burger-list,
+.soda-list,
+.fries-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 5%;
+}
+
+
+.burger-item img,
+.soda-item img,
+.fries-item img {
+  max-width: 50%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  width: 50%;
+}
+
+  .burger-item,
+  .soda-item,
+  .fries-item {
+    width: 100%;
+  }
+
+
+
+  .cart-toggle-down {
+    top: 2%;
+    right: 2%;
+    font-size: 4vw;
+  }
+
+  .checkout-image {
+    
+    width: 50%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+  
+  }
+  .phone-input-container {
+    width: 60%;
+    margin: 2% auto;
+  }
+
+  .phone-input-container {
+    width: 60%;
+    margin: 2% auto;
+    padding: 2%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+    box-sizing: border-box;
+  }
+  
+  .phone-input {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .input-container {
+    margin-bottom: 1rem;
+  }
+
+  .input-container input {
+    flex-grow: 1;
+    height: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    margin: 0.2rem; 
+    box-sizing: border-box;
+  }
+
+  
+  .credit-card-input-container {
+    display: fl;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .credit-card-input-container > * {
+    margin-bottom: 1%;
+  }
+  
+  .expiration-input-container {
+    display: flex;
+    align-items: center;
+  }
+
+  
+  #expiration-month-input,
+  #expiration-year-input {
+    width: 3rem;
+  }
+  
+  .cvv-input {
+    width: 10%;
+    margin-right: 5rem;
+    margin-left: 1rem;
+  }
+  
+  
+  .cvv-input {
+    width: 10%;
+  }
+
+  .checkout-images-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: auto;
+    width: 20%;
+    max-width: 80%; 
+    margin: 2%; 
+  }
+
+  .price-display {
+    margin: 0.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+  }
+  .error-checkout-message {
+    font-size: 0.8rem; 
+    color: red; 
+  }
+
+  .buttonInWindow {
+    width: 25%;
+    
+    font-size: 75%;
+    padding: 6px 16px;
+  }
+
+  .confirm-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #FCE38A;
+  }
+  .confirm-page h2 {
+    font-size: 2.5rem;
+    color: #F38181;
+    text-align: center;
+  }
+
+  .confirm-page .timer {
+    font-size: 3rem;
+    display: flex;
+    justify-content:center;
+    font-weight: bold;
+    color: #19971d;
+  }
+
+  .confirm-page .footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #FCE38A;
+  flex-shrink: 0;
+}
+
+.confirm-page .footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  text-align: center;
+  background-color: #FCE38A;
+  font-weight: bold;
+}
+
+.confirm-page .footer a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: green;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.confirm-page .footer a:hover {
+  background-color: darkgreen;
+}
+
+.cart-toggle {
+  position:relative;
+  bottom: 5rem;
+  left: 1.5rem; 
+  width: 30px; 
+  height: 10px; 
+  transform: scale(0.1);
+}
+.cart-toggle-displayed {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.cart-sticky {
+  position: sticky;
+  bottom: 0;
+  background-color: #f1f1f1;
+  z-index: 9999;
+}
+
+.decrease-button,
+.increase-button {
+  border: none;
+  background-color: transparent;
+  font-size: 2rem;
+  cursor: pointer;
+  width: 2rem; 
+  height: 2rem; 
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  margin-top:1%
+}
+
+.decrease-button span {
+  color: red;
+}
+
+.increase-button span {
+  color: green;
+}
+
+.CheckOutButton{
+  display: inline-block;
+  padding: 1% 1%;
+  background-color: #28a338;
+  color: #e6f3f0;
+  text-decoration: none;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  margin-top: 2%;
+ }
+ .CheckOutButton:hover {
+  background-color: #ccc;
+}
+.cart-container {
+  height: 300px; 
+  overflow: auto;
+  background-color: #8aad8d;
+  position: relative;
+}
+.cart {
+  
+  background-color: #8aad8d;
+}
+
+.cart-items {
+  padding: 10px;
+}
+.burger-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em; 
+  font-weight: bold;
+  color: #574b65;
+}
+.vegan-veggie-burger-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem; 
+  font-weight: bold;
+  color: #3bdc46; 
+}
+.sodas-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem; 
+  font-weight: bold; 
+  color: #574b65; 
+}
+.fries-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem; 
+  font-weight: bold;
+  color: #574b65; 
+}
+
+.navbar {
+  flex-direction: column;
+  height: auto;
+  padding: 10px;
+}
+
+.navbar a {
+  display: none; 
+}
+
+.navbar-logo {
+  position: static;
+  transform: none;
+  margin-bottom: 10px;
+  display: block;
+  width: 80px; 
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.burger-item p,
+  .soda-item p,
+  .fries-item p {
+    font-size: 0.8em; 
+    text-align: center;
+  }
+  .burger-item h3,
+  .soda-item h3,
+  .fries-item h3 {
+    font-size: 1em;
+    margin-top: 1%;
+    text-align: center;
+  }
+
+  .burger-item img,
+  .soda-item img,
+  .fries-item img {
+    max-width: 100%;
+    height: 50%;
+    object-fit: cover;
+    display: block;
+    width: 35%;
+    align-items: center;
+    margin: auto;
+  }
+
+}
+
+

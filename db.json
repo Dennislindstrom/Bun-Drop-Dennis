@@ -1,0 +1,107 @@
+{
+  "hamburgers": [
+    {
+      "id": 1,
+      "title": "Cheeseburger",
+      "description": "Cheese, 200g meat, ketchup, mustard",
+      "image": "Cheeseburger-1.png",
+      "price": "100 kr"
+    },
+    {
+      "id": 2,
+      "title": "Bacon&Jam burger",
+      "description": "Briochebread, 400g meat, bacon, double cheddar, mayo, jalapeno",
+      "image": "Bacon&Jam burger-2.png"
+      ,
+      "price": "125 kr"
+    },
+    {
+      "id": 3,
+      "title": "Hellburger",
+      "description": "Briochebread, 200g meat, bacon, cheddar, chilimayo, onion & pickled cucumber",
+      "image": "Hellburger-3.png",
+      "price": "150 kr"
+    },
+    {
+      "id": 4,
+      "title": "Cheesus",
+      "description": "Briochebread, 400g meat, triple cheddar, lettuce, tomato",
+      "image": "Cheesus-4.png",
+      "price": "165 kr"
+    }
+  ],
+
+  "veganburgers": [
+    {
+      "id": 10,
+      "title": "VeggieBurger",
+      "description": "Briochebread, plant-based meat, bourbonsauce, pickled onions & tomato",
+      "image": "VeggieBurger-1.png",
+      "price": "100 kr"
+    },
+    {
+      "id": 11,
+      "title": "Mr.Lettuce",
+      "description": "Briochebread, plant-based meat, bourbonsauce, cheese, tomato, lettuce, pickled cucumber & tomato",
+      "image": "Mr.Lettuce-2.png",
+      "price": "115 kr"
+    },
+    {
+      "id": 12,
+      "title": "Cheegan",
+      "description": "Briochebread, plant-based meat, bourbonsauce, vegan-cheese, tomato, lettuce, pickled cucumber & tomato",
+      "image": "Cheegan-5.png",
+      "price": "115 kr"
+    }
+    ,
+    {
+      "id": 13,
+      "title": "Mrs.Vegan",
+      "description": "Briochebread, plant-based meat, Smoked paprika, cheese, tomato, lettuce, pickled cucumber & tomato",
+      "image": "Mrs.Vegan-6.png",
+      "price": "115 kr"
+    }
+    
+  ],
+  "sodas":[
+    {
+      "id": 1,
+      "title": "Calpis Water", 
+      "image":"soda-3.png", 
+      "price": "9 kr"
+    },
+    {
+      "id": 2,
+      "title": "OLIPOP Strawberry&Vanilla",
+      "image":"soda-2.png",
+      "price": "12 kr"
+    },
+    {
+      "id": 3,
+      "title": "Frida's AppleJuice",
+      "image":"soda-1.png",
+      "price": "15 kr"
+    },
+    {
+      "id": 4,
+      "title": "Positive Energy Tropical Blizz",
+      "image":"soda-4.png",
+      "price": "20 kr"
+    }
+  ],
+  
+  "fries":[
+    {
+      "id": 22,
+      "title": "Fries",
+      "image":"fries-1.png",
+      "price": "15 kr"
+    },
+    {
+      "id": 23,
+      "title": "Sweet potato fries",
+      "image":"fries-2.png",
+      "price": "20 kr"
+    }
+  ]
+}
